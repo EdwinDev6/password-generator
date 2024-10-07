@@ -1,29 +1,29 @@
-const inputCantidad = document.getElementById("cantidad");
-const botonGenerar = document.getElementById("generar");
-const inputContrasena = document.getElementById("contrasena");
+const inputAmount = document.getElementById("amount");
+const buttonGenerate = document.getElementById("generate");
+const inputPassword = document.getElementById("password");
 
-function generarContrasena(longitud) {
-  const caracteres =
+function generatePassword(length) {
+  const characters =
     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
-  let contrasena = "";
+  let password = "";
 
-  for (let i = 0; i < longitud; i++) {
-    const randomIndex = Math.floor(Math.random() * caracteres.length);
-    contrasena += caracteres[randomIndex];
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    password += characters[randomIndex];
   }
 
-  return contrasena;
+  return password;
 }
 
-botonGenerar.addEventListener("click", () => {
-  const cantidad = parseInt(inputCantidad.value);
+buttonGenerate.addEventListener("click", () => {
+  const amount = parseInt(inputAmount.value);
 
-  if (isNaN(cantidad) || cantidad <= 0) {
-    alert("Por favor, ingresa un número válido de caracteres");
+  if (isNaN(amount) || amount <= 0) {
+    alert("Please enter a valid number of characters");
     return;
   }
 
-  const contrasena = generarContrasena(cantidad);
-  inputContrasena.value = contrasena;
+  const password = generatePassword(amount);
+  inputPassword.value = password;
 });
